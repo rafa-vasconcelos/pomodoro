@@ -1,0 +1,132 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(133, 33, 33);
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.fa-solid {
+  cursor: pointer;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  gap: -30px;
+  @media (min-width: 400px) {
+    margin-top: 1vh;
+  }
+}
+
+header {
+  font-size: 1.2rem;
+  @media (min-width: 400px) {
+    font-size: 1.9rem;
+    margin-bottom: -10px;
+  }
+  text-align: center;
+}
+
+.controls-block {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 400px) {
+    flex-direction: row;
+    gap: 55px;
+  }
+}
+
+// .break {
+//   text-align: center;
+// }
+
+.break-panel,
+.session-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: -18px;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 400px) {
+    margin-top: 1vh;
+  }
+}
+
+.session-panel {
+  margin-top: -20px;
+  @media (min-width: 400px) {
+    margin-top: auto;
+  }
+}
+
+.countdown {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 80vw;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  background-color: rgb(131, 42, 42);
+  h1 {
+    font-size: 3rem;
+  }
+  @media (min-width: 400px) {
+    width: 30vw;
+    h1 {
+      font-size: 5rem;
+    }
+  }
+}
+
+.control-panel {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 1.5rem;
+}
+
+footer {
+  margin-top: 5vh;
+  text-align: center;
+  width: 250px;
+  font-family: monospace;
+  line-height: 1.4rem;
+  font-size: 1rem;
+}
+
+footer > a {
+  text-decoration: none;
+  color: rgb(32, 32, 66);
+  font-weight: bold;
+  @media (min-width: 400px) {
+    padding-bottom: 25px;
+  }
+}
+
+// *:not(path):not(g) {
+//   color: hsla(210, 100%, 100%, 0.9) !important;
+//   background: hsla(210, 100%, 50%, 0.5) !important;
+//   outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+
+//   box-shadow: none !important;
+// }
