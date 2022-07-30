@@ -11,7 +11,7 @@ const App = () => {
 
   const [whichTime, setWhichTime] = React.useState("Session");
 
-  const [timer, setTimer] = React.useState(1);
+  const [timer, setTimer] = React.useState(1500);
 
   // const [timerStarted, setTimerStarted] = React.useState(false);
 
