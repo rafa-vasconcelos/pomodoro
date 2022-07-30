@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.c3ba26d7.css",
-    "main.js": "/react-gh-pages/static/js/main.dbb7220d.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.c3ba26d7.css.map": "/react-gh-pages/static/css/main.c3ba26d7.css.map",
-    "main.dbb7220d.js.map": "/react-gh-pages/static/js/main.dbb7220d.js.map"
+    "main.css": "/pomodoro/static/css/main.c3ba26d7.css",
+    "main.js": "/pomodoro/static/js/main.d8dc98b9.js",
+    "index.html": "/pomodoro/index.html",
+    "main.c3ba26d7.css.map": "/pomodoro/static/css/main.c3ba26d7.css.map",
+    "main.d8dc98b9.js.map": "/pomodoro/static/js/main.d8dc98b9.js.map"
   },
   "entrypoints": [
     "static/css/main.c3ba26d7.css",
-    "static/js/main.dbb7220d.js"
+    "static/js/main.d8dc98b9.js"
   ]
 }
