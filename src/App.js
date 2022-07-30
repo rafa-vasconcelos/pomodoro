@@ -13,7 +13,7 @@ const App = () => {
 
   const [timer, setTimer] = React.useState(1);
 
-  const [timerStarted, setTimerStarted] = React.useState(false);
+  // const [timerStarted, setTimerStarted] = React.useState(false);
 
   const [myInterval, setMyInterval] = React.useState(null);
 
