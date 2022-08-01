@@ -13,21 +13,15 @@ const App = () => {
 
   const [timer, setTimer] = React.useState(1500);
 
-  // const [timerStarted, setTimerStarted] = React.useState(false);
-
   const [myInterval, setMyInterval] = React.useState(null);
 
   const minutes = Math.floor(timer / 60);
 
   const seconds = timer - minutes * 60;
 
-  const alarmSound = new Audio(
-    "https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
-  );
-
   React.useEffect(() => {
     if (timer === 0) {
-      alarmSound.play();
+      document.getElementById("beep").play();
     }
     setTimeout(() => {
       if (whichTime === "Session" && timer === 0) {
@@ -38,67 +32,58 @@ const App = () => {
         setWhichTime("Session");
         setTimer(sessionTime * 60);
       }
-      // if (timer === 0 && whichTime === "Session") {
-      //   setTimer(breakTime * 60);
-      // } else if (timer === 0 && whichTime === "Break") {
-      //   setTimer(sessionTime * 60);
-      // }
     }, [2500]);
   }, [timer]);
 
   const setTime = (event) => {
     if (
-      event.target.className === "fa fa-solid fa-arrow-down break" &&
+      event.target.id === "break-decrement" &&
       breakTime > 1 &&
       !myInterval &&
       whichTime === "Break"
     ) {
       setTimer((breakTime - 1) * 60);
     } else if (
-      event.target.className === "fa fa-solid fa-arrow-up break" &&
+      event.target.id === "break-increment" &&
       breakTime < 60 &&
       !myInterval &&
       whichTime === "Break"
     ) {
       setTimer((breakTime + 1) * 60);
     } else if (
-      event.target.className === "fa fa-solid fa-arrow-down session" &&
+      event.target.id === "session-decrement" &&
       sessionTime > 1 &&
       !myInterval &&
       whichTime === "Session"
     ) {
       setTimer((sessionTime - 1) * 60);
     } else if (
-      event.target.className === "fa fa-solid fa-arrow-up session" &&
+      event.target.id === "session-increment" &&
       sessionTime < 60 &&
       !myInterval &&
       whichTime === "Session"
     ) {
       setTimer((sessionTime + 1) * 60);
     }
-    if (
-      event.target.className === "fa fa-solid fa-arrow-down break" &&
-      breakTime > 1 &&
-      !myInterval
-    ) {
+    if (event.target.id === "break-decrement" && breakTime > 1 && !myInterval) {
       setBreakTime((prevState) => prevState - 1);
     }
     if (
-      event.target.className === "fa fa-solid fa-arrow-up break" &&
+      event.target.id === "break-increment" &&
       breakTime < 60 &&
       !myInterval
     ) {
       setBreakTime((prevState) => prevState + 1);
     }
     if (
-      event.target.className === "fa fa-solid fa-arrow-down session" &&
+      event.target.id === "session-decrement" &&
       sessionTime > 1 &&
       !myInterval
     ) {
       setSessionTime((prevState) => prevState - 1);
     }
     if (
-      event.target.className === "fa fa-solid fa-arrow-up session" &&
+      event.target.id === "session-increment" &&
       sessionTime > 1 &&
       !myInterval
     ) {
@@ -120,7 +105,9 @@ const App = () => {
 
   const restartTimer = () => {
     setMyInterval(clearInterval(myInterval));
-    setTimer(sessionTime * 60);
+    setTimer(25 * 60);
+    setBreakTime(5);
+    setSessionTime(25);
     setWhichTime("Session");
   };
 
@@ -152,6 +139,10 @@ const App = () => {
         pauseCountdown={pauseCountdown}
         restartTimer={restartTimer}
       />
+      <audio
+        id="beep"
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+      ></audio>
       <footer>
         Designed and Coded by{" "}
         <a href="https://github.com/rafa-vasconcelos" target="blank">
