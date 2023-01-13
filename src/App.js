@@ -3,6 +3,7 @@ import React from "react";
 import "./index.scss";
 import SetupPanel from "./Components/SetupPanel";
 import Timer from "./Components/Timer";
+import { useState } from "react";
 
 const App = () => {
   const [breakTime, setBreakTime] = React.useState(5);
@@ -19,6 +20,8 @@ const App = () => {
 
   const seconds = timer - minutes * 60;
 
+  const [numberOfSessions, setNumberOfSessions] = useState(0);
+
   React.useEffect(() => {
     if (timer === 0) {
       document.getElementById("beep").play();
@@ -27,6 +30,7 @@ const App = () => {
       if (whichTime === "Session" && timer === 0) {
         setWhichTime("Break");
         setTimer(breakTime * 60);
+        setNumberOfSessions((prevState) => prevState + 1);
       }
       if (whichTime === "Break" && timer === 0) {
         setWhichTime("Session");
@@ -84,7 +88,7 @@ const App = () => {
     }
     if (
       event.target.id === "session-increment" &&
-      sessionTime > 1 &&
+      sessionTime < 60 &&
       !myInterval
     ) {
       setSessionTime((prevState) => prevState + 1);
@@ -119,7 +123,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <h1>
-          Pomodoro Clock <i class="fa fa-clock-o" aria-hidden="true"></i>
+          Pomodoro Clock <i className="fa fa-clock-o" aria-hidden="true"></i>
         </h1>
       </header>
       <SetupPanel
@@ -128,6 +132,7 @@ const App = () => {
         setTime={setTime}
         minutes={minutes}
         seconds={seconds}
+        numberOfSessions={numberOfSessions}
       />
       <Timer
         breakTime={breakTime}

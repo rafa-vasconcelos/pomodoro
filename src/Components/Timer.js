@@ -19,7 +19,7 @@ const Timer = (props) => {
         ></i>
         <i className="fa fa-solid fa-pause" onClick={props.pauseCountdown}></i>
         <i
-          class="fa fa-solid fa-undo"
+          className="fa fa-solid fa-undo"
           id="reset"
           onClick={props.restartTimer}
         ></i>{" "}

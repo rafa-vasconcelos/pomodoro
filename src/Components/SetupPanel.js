@@ -7,6 +7,8 @@ const SetupPanel = (props) => {
           <i
             className="fa fa-solid fa-arrow-down break"
             onClick={props.setTime}
+            onKeyDown={props.setTime}
+            tabIndex="0"
             id="break-decrement"
           ></i>{" "}
           {props.breakTime}{" "}
@@ -36,6 +38,10 @@ const SetupPanel = (props) => {
             {" "}
           </i>
         </p>
+      </div>
+      <div className="session-panel">
+        <h2>Number of Sessions</h2>
+        <p id="session-length">{props.numberOfSessions} </p>
       </div>
     </div>
   );
